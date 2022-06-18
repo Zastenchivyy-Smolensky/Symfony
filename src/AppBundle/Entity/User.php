@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 /**
  * User
  *
@@ -19,10 +20,11 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    public function __construct()
+    public function __construct()  // コンストラクタを追加
     {
-        parent::__construct();
+        parent::__construct();     // 親クラスのコンストラクタをコール
     }
+
 
 
     /**

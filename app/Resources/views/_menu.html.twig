@@ -1,4 +1,10 @@
 <ul class="menu">
-	<li><a href="{{ path('omikuji') }}">おみくじ</a></li>
-	<li><a href="{{ path('unsei_index') }}">管理</a></li>
+    <li><a href="{{ path('omikuji') }}">おみくじ</a></li>
+
+    {% if app.user %}  {# もし、ログインしていたら #}
+        <li><a href="{{ path('unsei_index') }}">管理</a></li>
+        <li><a href="{{ path('fos_user_security_logout') }}">ログアウト</a></li>
+    {% else %}
+        <li><a href="{{ path('fos_user_security_login') }}">ログイン</a></li>
+    {% endif %}
 </ul>
